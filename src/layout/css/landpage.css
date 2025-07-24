@@ -1,0 +1,54 @@
+input{
+    padding: 5px;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    margin-top: 2px;
+}
+
+.centerItem{
+    padding: 5rem;
+}
+
+.login-container{
+    width: 100%;
+    height: 100vh;
+}
+
+.login-wrapper{
+    position: relative;
+    padding: 5rem 8rem;
+    border-radius: 18px;
+    box-shadow: 1px 1px 3px #d9d9d9;
+    border: 1px solid #d9d9d9;
+}
+
+.back-button{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(0, 157, 255, 0.803);
+    width: fit-content;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+.input-container{
+}
+
+.login-button{
+    width: fit-content;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.borderline{
+    width: 80%;
+    border-bottom: 1px solid rgb(128, 128, 128);
+}
+
+.back-button:hover{
+    box-shadow: 1px 1px 3px rgb(192, 192, 192);
+}

@@ -37,14 +37,18 @@ bitcount Font-weight: 100 - 900;
 *::-webkit-scrollbar{
     display: none;
 }
+.header{
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
 
 .container{
-    height: 80vh;
     display:grid;
     gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-template-rows: repeat(3, 5rem 28rem 1fr );
-    padding: 1em 2.6rem;
+    padding: 5em 2.6rem;
 }
 
 .budget{
@@ -251,6 +255,19 @@ bitcount Font-weight: 100 - 900;
 
 /* Shortcut components css */
 
+.height-f{
+    height: 100vh;
+}
+
+.width-f{
+    width: 100%;
+}
+
+.width-height-f{
+    width: 100%;
+    height: 100vh;
+}
+
 .flex {
     display:flex;
 }
@@ -265,6 +282,10 @@ bitcount Font-weight: 100 - 900;
 
 .justify-between{
     justify-content: space-between;
+}
+
+.flex-d-col{
+    flex-direction: column;
 }
 
 .capitalLetter{
