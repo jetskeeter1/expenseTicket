@@ -9,6 +9,7 @@ import Home from './layout/dashboard';
 import LandPage from './layout/landingpage';
 import Login from './layout/auth/login';
 import Register from './layout/auth/register';
+import ProtectRouting from './layout/auth/protectRoute';
 
 const router = createBrowserRouter ([
   {
@@ -20,7 +21,11 @@ const router = createBrowserRouter ([
       {path: "/register", element: <Register /> },
       {
         path: "/dashboard",
-        element: <MainLayout />, 
+        element: (
+          <ProtectRouting >
+            <MainLayout />
+          </ProtectRouting>
+        ), 
         children:[
           {index: true, element: <Home />}
         ]

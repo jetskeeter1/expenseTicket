@@ -1,11 +1,13 @@
 import '../css/landpage.css';
 import '../css/dashboard.css';
 import axios from 'axios';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from './authtoken';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+    const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -17,7 +19,7 @@ function Login() {
             const user = userCredential.user;
 
             const idToken = await user.getIdToken();
-            console.log("token got: ", idToken)
+            console.log("token got: ", idToken);
 
             const res = await axios.post(
                 'http://localhost/expense_app/expense_backend/firebasetoken.php',
@@ -30,9 +32,13 @@ function Login() {
                 }
             );
 
-            console.log("Login success:", res.data);
+            // console.log("Login success:", res.data);
             if(res.data.message === "User verified"){
-                alert("User: " + res.data.user.username);
+                localStorage.setItem("token", idToken);
+                navigate("/dashboard");
+                // alert("User: " + res.data.user.username);
+            } else {
+                console.log("Login Failed, Account do not exist!");
             }
         } catch (error) {
             console.error("Login failed:", error.message);

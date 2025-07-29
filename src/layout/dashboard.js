@@ -6,6 +6,7 @@ import TicketList from './component/ticketlist';
 import TicketHistory from './component/pasttickets';
 
 function Dashboard(){
+
     return(
         <div className='container width-height-f'>
             <Budget />
