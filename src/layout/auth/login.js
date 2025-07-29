@@ -15,18 +15,18 @@ function Login() {
         e.preventDefault();
 
         try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
+            const userCredential = await signInWithEmailAndPassword(auth, email, password); // authorize user to check and grab data from database
+            const user = userCredential.user; // gets user related information
 
-            const idToken = await user.getIdToken();
-            console.log("token got: ", idToken);
+            const idToken = await user.getIdToken();// takes a JWT Token from firebase
+            console.log("token got: ", idToken); // shows a jwt token
 
             const res = await axios.post(
                 'http://localhost/expense_app/expense_backend/firebasetoken.php',
                 {},
                 {
                     headers: {
-                        Authorization: `Bearer ${idToken}`,
+                        Authorization: `Bearer ${idToken}`, //Authenticate and authorize user to backend and check with php database
                         'Content-Type': 'application/json',
                     },
                 }
@@ -34,7 +34,7 @@ function Login() {
 
             // console.log("Login success:", res.data);
             if(res.data.message === "User verified"){
-                localStorage.setItem("token", idToken);
+                localStorage.setItem("token", idToken); // store token. it can be used to identify and get data related to user
                 navigate("/dashboard");
                 // alert("User: " + res.data.user.username);
             } else {

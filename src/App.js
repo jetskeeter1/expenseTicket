@@ -22,7 +22,8 @@ const router = createBrowserRouter ([
       {
         path: "/dashboard",
         element: (
-          <ProtectRouting >
+          // wrapped children and protect from unkown visitors
+          <ProtectRouting >  
             <MainLayout />
           </ProtectRouting>
         ), 
