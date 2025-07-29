@@ -19,8 +19,14 @@ function TicketList(){
     // GET METHOD --------------------------------------------------------------------------
     const fetchtickets = () => { 
         axios.get("http://localhost/expense_app/expense_backend/getitem.php").then(
-        response =>{
-            setItemTicket(response.data);
+        response =>{    
+            const data = response.data;
+            if (Array.isArray(data)){
+                setItemTicket(data);
+            } else {
+                console.warn("Expected array but got:", data);
+                setItemTicket([]);
+            }
         })
         .catch(error => {
             console.error("Error fetching data:", error);
