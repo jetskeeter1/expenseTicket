@@ -96,7 +96,7 @@ function TicketList(){
 
     return(
         <>
-            {isModalOpen && (<Modalitem id={selectedId} onRefresh={fetchtickets} closeModal={closeModal} />)}
+            {isModalOpen && (<Modalitem id={selectedId} onRefresh={fetchtickets()} closeModal={closeModal} />)}
             <div className="listContainer">
                 <div className="listHeader">Item List of Today <span>{today}</span></div>
                 {/* WHERE THE GET METHOD IS POSTED ------------------------------------ */}

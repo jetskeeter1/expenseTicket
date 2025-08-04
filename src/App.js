@@ -5,6 +5,7 @@ import {
   useRouteError,
 } from 'react-router-dom';
 import MainLayout from './layout/mainlayout';
+import LandLayout from './layout/landingpagelayout';
 import Home from './layout/dashboard';
 import LandPage from './layout/landingpage';
 import Login from './layout/auth/login';
@@ -14,7 +15,7 @@ import ProtectRouting from './layout/auth/protectRoute';
 const router = createBrowserRouter ([
   {
     path: '/',
-    element: <MainLayout />,
+    element: <LandLayout />,
     children: [
       {index: true, element: <LandPage /> },
       {path: "/login", element: <Login /> },

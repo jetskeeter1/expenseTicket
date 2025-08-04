@@ -43,19 +43,26 @@ function Modal({id, closeModal}){
         .catch(error => { console.error("Item ID Not Found", error)});
     }
 
+    const close = () =>{
+        closeModal();
+    }
+
         return (
-            <div className="modal">
-                <div className='topHeader'>Item yes yes</div>
-                 <form className="itemTicket" onSubmit={handleSubmit} >
-                    <div className="itemElements">
-                        <div className="inputItem">
-                            <input type="text" value={itemName} onChange={(e)=>setItemName(e.target.value)} placeholder="Item Name..." ></input>
-                            <input type="text" value={itemPrice} onChange={(e)=>setItemPrice(e.target.value)}  placeholder="Price..."></input>
+            <div className='modalbackground' >
+                <button className='button modalbutton' onClick={close}>X</button>
+                <div className="modal">
+                    <div className='topHeader'>Ticket Update</div> <br />
+                     <form className="itemTicket" onSubmit={handleSubmit} >
+                        <div className="itemElements">
+                            <div className="inputItem">
+                                <input type="text" value={itemName} onChange={(e)=>setItemName(e.target.value)} placeholder="Item Name..." ></input>
+                                <input type="text" value={itemPrice} onChange={(e)=>setItemPrice(e.target.value)}  placeholder="Price..."></input>
+                            </div>
+                            <textarea className="comment" value={itemComment} onChange={(e)=>setItemComment(e.target.value)}/>
                         </div>
-                        <textarea className="comment" value={itemComment} onChange={(e)=>setItemComment(e.target.value)}/>
-                    </div>
-                    <button className="button ticketbutton">Update</button>
-                </form>
+                        <button className="button ticketbutton">Update</button>
+                    </form>
+                </div>
             </div>
         )
 }

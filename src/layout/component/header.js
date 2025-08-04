@@ -11,7 +11,7 @@ function Header(){
 
     return(
         <div className='header width-f'>
-            <button onClick={logout} className='button'>Logout</button>
+            <button onClick={logout} className='button signout-b'>Logout</button>
             Expense Tracker
         </div>
     )

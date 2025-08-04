@@ -2,8 +2,10 @@ import '../css/landpage.css';
 import '../css/dashboard.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Register(){
+    const navigate = useNavigate();
     const [username, setUserName] = useState("");
     const [email, setEMail] = useState("");
     const [password, setPassword] = useState("");
@@ -18,16 +20,17 @@ function Register(){
 
         }
 
-        try{
-            axios.post("http://localhost/expense_app/expense_backend/fbUserCreate.php", userData)
-            .then(response=>{
-                console.log("Success send: ", response.data);
-            }).catch(error=>{
-                console.error("Unsuccess register: ", error.data);
-            })
-        } catch{
-
-        }
+        axios.post("http://localhost/expense_app/expense_backend/fbUserCreate.php", userData)
+        .then(response=>{
+            console.log("Success send: ", response.data);
+            alert("You have succesfully registered");
+            navigate("/dashboard");
+        }).catch(error=>{
+            console.error("Unsuccess register: ", error.data);
+            setEMail("");
+            setUserName("");
+            setUserName("");
+        })
     }
     
     return(
